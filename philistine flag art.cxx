@@ -52,7 +52,7 @@ void input() {
 }
 
 string wave(int i, int j, string c, string c1) {
-	int lam = (floor(abs(sin(j*(PI/::lam)))*2));
+	int lam = (floor(abs(sin(j*(PI/::lam)))*3));
 	return (lam >= i%5) ? c1 : c;
 }
 int dv = 0, df = 0;
@@ -85,10 +85,11 @@ void init(int (*m)()) {
 
 void pil(int (*m)()){
 	thread t(input);
-	thread d(init, m);
+	//thread d(init, m);
+	init(m);
 	t.join();
-	con.store(true);
-	d.join();
+	//con.store(true);
+	//d.join();
 	m();
 }
 
